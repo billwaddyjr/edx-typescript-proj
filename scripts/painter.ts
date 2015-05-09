@@ -1,7 +1,8 @@
 export interface IPainter {
-  name: string
+  name: string,
+  style: string
 }
 
 export class Painter implements IPainter {
-  constructor(public name:string){}
+  constructor(public name:string, public style: string){}
 }

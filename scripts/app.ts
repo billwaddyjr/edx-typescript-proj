@@ -4,19 +4,15 @@ import { PainterLoader } from "./painter-loader";
 import { Renderer } from "./renderer";
 
 export function init() {
-  var PainterList: TypedList<IPainter>;
+  var painterList = new TypedList<IPainter>();
   var renderer = new Renderer();
 
-  var loader = new PainterLoader('/JSON/famousPainters.json', PainterList, renderer);
+  var loader = new PainterLoader('/JSON/famousPainters.json', painterList, renderer);
   loader.load();
 
   var painterSelect = (<HTMLSelectElement> document.getElementById('PainterList'));
-  painterSelect.onchange = () => loadPainters();
+  painterSelect.onchange = () => renderer.renderPainter(painterList);
 };
-
-function loadPainters() {
-
-}
 
 
 

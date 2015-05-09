@@ -14,11 +14,10 @@ export class PainterLoader {
 
   mapData(data) {
     if (data) {
-      this.list = new TypedList<IPainter>();
       var painters: any[] = data.famousPainters;
 
       painters.forEach((painter) => {
-        this.list.items.push(new Painter(painter.name));
+        this.list.items.push(new Painter(painter.name, painter.style));
       });
 
       this.renderer.renderPainterList(this.list);
