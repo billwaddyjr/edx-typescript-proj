@@ -1,1 +1,3 @@
-﻿//Add your initialization logic here
+export function init() {
+    return true;
+}
