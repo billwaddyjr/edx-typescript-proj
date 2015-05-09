@@ -1,8 +1,7 @@
-/// <reference path="../typings/require.d.ts" />
 requirejs.config({
     baseUrl: 'scripts',
     paths: {
-        'jquery': 'libs/jquery-1.11.2'
+        'jquery': '../libs/jquery-1.11.2'
     },
     shim: {
         jquery: {

@@ -12,10 +12,16 @@
     },
     "filesGlob": [
         "./scripts/**/*.ts",
+        "./typings/**/*.ts",
         "!./node_modules/**/*.ts"
     ],
     "files": [
         "./scripts/app.ts",
-        "./scripts/main.ts"
+        "./scripts/helpers.ts",
+        "./scripts/main.ts",
+        "./scripts/painter-loader.ts",
+        "./scripts/painter.ts",
+        "./typings/jquery.d.ts",
+        "./typings/require.d.ts"
     ]
 }
