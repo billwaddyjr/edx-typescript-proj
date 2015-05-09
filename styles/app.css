@@ -12,19 +12,15 @@ textarea
     width: 200px;
     height: 100px;
 
-margin-top: 5px; 
-}
-
-.foodGroups
-{
-    /*float:left*/
+margin-top: 5px;
 }
 
 .logoImg
 {
     float:left;
     margin-bottom: 5px;
-    margin-right: 5px; 
+    margin-right: 5px;
+    height: 2em;
 }
 .examples
 {
