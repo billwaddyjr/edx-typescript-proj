@@ -21,6 +21,7 @@
         "./scripts/main.ts",
         "./scripts/painter-loader.ts",
         "./scripts/painter.ts",
+        "./scripts/renderer.ts",
         "./typings/jquery.d.ts",
         "./typings/require.d.ts"
     ]

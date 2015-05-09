@@ -1,44 +1,29 @@
-import {TypedList} from "./helpers";
-import {IPainter} from "./painter";
+import { TypedList } from "./helpers";
+import { IPainter, Painter } from "./painter";
+import { Renderer } from "./renderer";
 import $ = require("jquery");
 
 export class PainterLoader {
-  constructor(private url: string, private list: TypedList<IPainter>) { }
+  constructor(private url: string, private list: TypedList<IPainter>, private renderer: Renderer) { }
 
   load() {
-    $.getJSON(this.url,(data) => {
-          this.mapData(data);
-      });
+    $.getJSON(this.url, (data) => {
+      this.mapData(data);
+    });
   }
 
   mapData(data) {
     if (data) {
-      console.log(data)
+      this.list = new TypedList<IPainter>();
+      var painters: any[] = data.famousPainters;
 
-      // var categories: any[] = data.recipeCategories;
-      //
-      // Initializer.recipeCategories = new RecipeCategories.RecipeCategories<Interfaces.IRecipeCategory>();
-      //
-      // var recipeCategoriesSummary = new RecipeCategories.RecipeCategories<Interfaces.IRecipeCategorySummary>()
-      //
-      // categories.forEach((category) => {
-      //     var recipeCategory = new RecipeCategory.RecipeCategory({
-      //         name: category.title,
-      //         foodGroups: this.getFoodGroups(category),
-      //         description: category.details,
-      //         examples: this.getExamples(category)
-      //     });
-      //     Initializer.recipeCategories.items.push(recipeCategory);
-      //
-      //     var recipeCategorySummary = new RecipeCategorySummary.RecipeCategorySummary({
-      //       text: category.title,
-      //       title: category.details
-      //     });
-      //     recipeCategoriesSummary.items.push(recipeCategorySummary);
-      //
-      // });
-      //
-      // Initializer.renderer.renderCategories(recipeCategoriesSummary);
+      painters.forEach((painter) => {
+        this.list.items.push(new Painter(painter.name));
+      });
+
+      this.renderer.renderPainterList(this.list);
+    } else {
+      this.renderer.renderError();
     }
   }
 }
