@@ -1,3 +1,3 @@
 export class TypedList<T> {
-  items: T[] = [];
+  constructor (public items: T[] = []){}
 }

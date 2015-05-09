@@ -25,13 +25,13 @@ export class Renderer {
       el.innerHTML = painter.style;
 
       //Update examples
-      // var foodGroups = (<HTMLSelectElement> document.getElementById('FoodGroups'));
-      // foodGroups.value = '';
-      // var html = '<ul>';
-      // for (var i = 0, len = category.foodGroups.length; i < len; i++) {
-      //   html += '<li>' + category.foodGroups[i].name + '</li>';
-      // }
-      // foodGroups.innerHTML = html + '</ul>';
+      var examples = (<HTMLSelectElement> document.getElementById('examples'));
+      examples.value = '';
+      var html = '<ul>';
+      for (var i = 0, len = painter.examples.items.length; i < len; i++) {
+        html += '<li>' + painter.examples.items[i] + '</li>';
+      }
+      examples.innerHTML = html + '</ul>';
 
     }
     catch (ex) { alert(ex.message) }

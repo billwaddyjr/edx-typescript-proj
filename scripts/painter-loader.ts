@@ -17,7 +17,12 @@ export class PainterLoader {
       var painters: any[] = data.famousPainters;
 
       painters.forEach((painter) => {
-        this.list.items.push(new Painter(painter.name, painter.style));
+        this.list.items.push(
+          new Painter(
+            painter.name,
+            painter.style,
+            new TypedList<string>(painter.examples)
+        ));
       });
 
       this.renderer.renderPainterList(this.list);

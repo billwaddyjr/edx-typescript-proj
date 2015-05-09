@@ -18,6 +18,13 @@ define(["require", "exports"], function (require, exports) {
                     .reduce(function (item) { return item; });
                 var el = document.getElementById('style');
                 el.innerHTML = painter.style;
+                var examples = document.getElementById('examples');
+                examples.value = '';
+                var html = '<ul>';
+                for (var i = 0, len = painter.examples.items.length; i < len; i++) {
+                    html += '<li>' + painter.examples.items[i] + '</li>';
+                }
+                examples.innerHTML = html + '</ul>';
             }
             catch (ex) {
                 alert(ex.message);

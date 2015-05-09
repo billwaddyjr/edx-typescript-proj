@@ -1,4 +1,4 @@
-define(["require", "exports", "./painter", "jquery"], function (require, exports, painter_1, $) {
+define(["require", "exports", "./helpers", "./painter", "jquery"], function (require, exports, helpers_1, painter_1, $) {
     var PainterLoader = (function () {
         function PainterLoader(url, list, renderer) {
             this.url = url;
@@ -16,7 +16,7 @@ define(["require", "exports", "./painter", "jquery"], function (require, exports
             if (data) {
                 var painters = data.famousPainters;
                 painters.forEach(function (painter) {
-                    _this.list.items.push(new painter_1.Painter(painter.name, painter.style));
+                    _this.list.items.push(new painter_1.Painter(painter.name, painter.style, new helpers_1.TypedList(painter.examples)));
                 });
                 this.renderer.renderPainterList(this.list);
             }
